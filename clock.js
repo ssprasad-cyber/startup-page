@@ -3,13 +3,17 @@ function refreshTime() {
   const hour = new Date().getHours();
   const minute = new Date().getMinutes();
   const second = new Date().getSeconds();
-    if(hour < 10){  
+    
+    if(hour < 10 & minute < 10){  
+        timeDisplay.textContent = '0'+ hour+":"+'0'+ minute;
+    }
+    else if(hour < 10 ){  
         timeDisplay.textContent = '0'+ hour+":"+minute;
-    }else if(minute < 10){
+    }
+    else if(minute < 10){
         timeDisplay.textContent = hour+":"+'0'+minute;
-    }else if(hour < 10 && minute < 10){
-        timeDisplay.textContent = '0'+ hour+":"+'0'+minute;
-    }else{
+    }
+    else{
         timeDisplay.textContent = hour+":"+minute;
     }
     if(second < 10){
