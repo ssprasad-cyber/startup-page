@@ -1,4 +1,4 @@
-var category = 'happiness';
+var category = 'computers';
 const quotes = document.getElementById('quote-text');
 const authors = document.getElementById('quote-author');
 $.ajax({
