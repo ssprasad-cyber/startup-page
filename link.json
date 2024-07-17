@@ -1,0 +1,59 @@
+{
+    "LearningResources": [
+      {"title": "Coursera", "url": "https://www.coursera.org/"},
+      {"title": "edX", "url": "https://www.edx.org/"},
+      {"title": "Udacity", "url": "https://www.udacity.com/"},
+      {"title": "Khan Academy", "url": "https://www.khanacademy.org/"}
+    ],
+    "CodingPractice": [
+      {"title": "LeetCode", "url": "https://leetcode.com/"},
+      {"title": "HackerRank", "url": "https://www.hackerrank.com/"},
+      {"title": "Codewars", "url": "https://www.codewars.com/"},
+      {"title": "GeeksforGeeks", "url": "https://www.geeksforgeeks.org/"}
+    ],
+    "DevelopmentTools": [
+      {"title": "GitHub", "url": "https://github.com/"},
+      {"title": "Stack Overflow", "url": "https://stackoverflow.com/"},
+      {"title": "CodePen", "url": "https://codepen.io/"},
+      {"title": "JSFiddle", "url": "https://jsfiddle.net/"}
+    ],
+    "Documentation": [
+      {"title": "MDN Web Docs", "url": "https://developer.mozilla.org/"},
+      {"title": "W3Schools", "url": "https://www.w3schools.com/"},
+      {"title": "DevDocs", "url": "https://devdocs.io/"}
+    ],
+    "ProjectManagement": [
+      {"title": "Trello", "url": "https://trello.com/"},
+      {"title": "Asana", "url": "https://asana.com/"},
+      {"title": "Slack", "url": "https://slack.com/"},
+      {"title": "Notion", "url": "https://www.notion.so/"}
+    ],
+    "Design": [
+      {"title": "Figma", "url": "https://www.figma.com/"},
+      {"title": "Adobe XD", "url": "https://www.adobe.com/products/xd.html"},
+      {"title": "Dribbble", "url": "https://dribbble.com/"},
+      {"title": "Behance", "url": "https://www.behance.net/"}
+    ],
+    "Productivity": [
+      {"title": "Todoist", "url": "https://todoist.com/"},
+      {"title": "Pomodone", "url": "https://pomodoneapp.com/"},
+      {"title": "RescueTime", "url": "https://www.rescuetime.com/"},
+      {"title": "Toggl", "url": "https://toggl.com/"}
+    ],
+    "AITools": [
+      {"title": "TensorFlow", "url": "https://www.tensorflow.org/"},
+      {"title": "PyTorch", "url": "https://pytorch.org/"},
+      {"title": "Google Colab", "url": "https://colab.research.google.com/"},
+      {"title": "Kaggle", "url": "https://www.kaggle.com/"},
+      {"title": "IBM Watson", "url": "https://www.ibm.com/watson"},
+      {"title": "OpenAI", "url": "https://www.openai.com/"},
+      {"title": "Hugging Face", "url": "https://huggingface.co/"},
+      {"title": "Microsoft Azure AI", "url": "https://azure.microsoft.com/en-us/services/cognitive-services/"}
+    ],
+    "Chill": [
+      {"title": "Headspace", "url": "https://www.headspace.com/"},
+      {"title": "Calm", "url": "https://www.calm.com/"},
+      {"title": "Spotify", "url": "https://www.spotify.com/"},
+      {"title": "YouTube", "url": "https://www.youtube.com/"}
+    ]
+}

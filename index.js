@@ -17,9 +17,9 @@ const quote_btn = document.querySelector(".quotes");
 const switch_d = document.querySelector(".switch");
 // const search = document.querySelector("#search");
 const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('#search');
+const searchInput = document.getElementById('search');
 const dropdown = document.getElementById('dropdown');
-
+const checkbox = document.getElementById('checkbox');
 
 // Function to toggle light mode and dark mode
 const toggleLightNightIcons = () => {
@@ -50,13 +50,11 @@ const disableDarkMode = () => {
 
 const applyMode = (mode) => {
    if (mode === 'dark') {
-      // console.log("Applying dark mode");
       if (!night.classList.contains("night_active")) {
          toggleLightNightIcons();
       }
       enableDarkMode();
    } else {
-      // console.log("Applying light mode"); 
       if (night.classList.contains("night_active")) {
          toggleLightNightIcons();
       }
@@ -66,12 +64,10 @@ const applyMode = (mode) => {
 
 const saveMode = (mode) => {
    localStorage.setItem('mode', mode);
-   console.log("Saved mode:", mode);
 };
 
 const toggleMode = () => {
    let mode = localStorage.getItem('mode');
-   console.log("Current mode:", mode);
    if (mode === 'dark') {
       applyMode('light');
       saveMode('light');
@@ -84,7 +80,6 @@ const toggleMode = () => {
 // Load mode on page load
 document.addEventListener("DOMContentLoaded", () => {
    const mode = localStorage.getItem('mode') || 'light';
-   console.log("Loaded mode:", mode);
    applyMode(mode);
 });
 
@@ -99,44 +94,43 @@ night.addEventListener("click", () => {
 
 // Power on function
 const powerOn = () => {
-   middle.classList.toggle("middle-active");
-   middle0.classList.toggle("middle0-active");
+   document.querySelector('.middle').classList.toggle('middle-active');
+   document.querySelector('.middle0').classList.toggle('middle0-active');
 };
 
-power.addEventListener("click", () => {
+power.addEventListener('click', () => {
    powerOn();
 });
 
-window.addEventListener("keydown", (e) => {
-   if (e.key === 'Escape') {
-      powerOn();
-   }
-});
+
 
 // Functional home page
-var d = 1;
-var q = 1;
-
+const disp = (element) =>{
+   element.style.display = (element.style.display === "none") ? "block" : "none";
+}
 dino_btn.addEventListener("click", () => {
-   if (d === 1) {
-      dino.style.display = "none";
-      d++;
-   } else {
-      dino.style.display = "block";
-      d = 1;
-   }
+      disp(dino);
 });
-
 quote_btn.addEventListener("click", () => {
-   if (q === 1) {
-      quote.style.display = "none";
-      q++;
-   } else {
-      quote.style.display = "block";
-      q = 1;
+   disp(quote);
+});
+// listners
+window.addEventListener('keyup', (e) => {
+   console.log(e)
+   if (e.key === 'Escape') {
+      checkbox.checked = !checkbox.checked;
+      powerOn();
+   }
+   if ((e.key === "D" ||e.key === "d") && e.shiftKey) {
+      disp(dino);
+   } 
+   if ((e.key === "Q" ||e.key === "q") && e.shiftKey) {
+      disp(quote);
+   }
+   else {
+      console.log(e);
    }
 });
-
 // search scprit
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -155,4 +149,40 @@ document.addEventListener('DOMContentLoaded', function() {
          // Add 'searchon' class to the clicked button
          event.target.classList.add('searchon');
    }});
+
+   // quick redirect
+   searchEngine.addEventListener("dblclick",link = (event) =>{
+      
+      if (event.target.tagName === 'BUTTON') {
+            const link = event.target.dataset.action;
+            const truncatedLink = link.substring(0, link.lastIndexOf('/'));
+            window.open(truncatedLink, '_blank');
+            
+      }
+   })
 });
+
+// Fetch links from link.json and display them
+fetch('link.json')
+   .then(response => response.json())
+   .then(data => {
+      console.log(data);
+      const linksContainer = document.querySelector('#links-container');
+
+      for (const category in data) {
+         const categoryDiv = document.createElement('div');
+         categoryDiv.innerHTML = `<h3>${category}</h3>`;
+         
+         data[category].forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.url;
+            a.textContent = link.title;
+            a.target = '_blank';
+            categoryDiv.appendChild(a);
+            categoryDiv.appendChild(document.createElement('br'));
+         });
+
+         linksContainer.appendChild(categoryDiv);
+      }
+   })
+   .catch(error => console.error('Error fetching links:', error));

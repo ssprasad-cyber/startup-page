@@ -14,6 +14,12 @@ $.ajax({
     },
     error: function ajaxError(jqXHR) {
         console.error('Error: ', jqXHR.responseText);
+        if (jqXHR.responseText === undefined) {
+            quotes.innerHTML = "Buddy, quotes don't work without internet";
+            authors.textContent =  ' - developer' ;
+        } 
+        else{
         quotes.innerHTML = 'An error occurred when calling the Quotes API: ' + jqXHR.responseText;
+        }
     }
 });
