@@ -4,7 +4,8 @@
     "version": "1.0",
     "description": "Opens a custom webpage in a new tab.",
     "chrome_url_overrides": {
-        "newtab": "index.html"
+        "newtab": "index.html",
+        "dino":"dino.html"
     },
     "permissions": [
         "storage"
